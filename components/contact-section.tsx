@@ -105,9 +105,7 @@ export default function ContactSection() {
                   {isSubmitting ? 'Submitting...' : 'Schedule a Demo'}
                 </button>
               </form>
-              <button className="w-full md:w-auto border border-red-500 hover:border-slate-900 text-slate-800 hover:text-slate-900 px-8 py-3 rounded-lg text-lg font-light transition-all duration-300 hover:scale-105 tracking-wider bg-white/70 backdrop-blur-sm">
-                Download Whitepaper
-              </button>
+              
             </div>
           )}
         </div>
