@@ -25,7 +25,7 @@ export default function HeroSection() {
           <p
             className={`text-xl md:text-3xl text-slate-700 max-w-4xl mx-auto transition-all duration-1000 delay-500 text-airy font-light ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
-            Launch Your Enterprise Into The Next Era Of Innovation
+            LAUNCH YOUR ENTERPRISE ENTERPRISE INTO THE NEXT ERA OF INNOVATION
           </p>
         </div>
       </div>

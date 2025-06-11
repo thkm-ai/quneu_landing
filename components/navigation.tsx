@@ -20,7 +20,7 @@ export default function Navigation() {
       setScrollProgress(progress)
 
       // Determine active section based on scroll position
-      const sections = ["hero", "vision", "solution", "how-it-works", "applications", "enterprise", "team"]
+      const sections = ["hero", "vision", "solution", "how-it-works", "applications", "enterprise",]
       for (const section of sections) {
         const element = document.getElementById(section)
         if (element) {
@@ -43,7 +43,7 @@ export default function Navigation() {
     { id: "solution", label: "Solutions" },
     { id: "how-it-works", label: "Works" },
     { id: "enterprise", label: "Enterprise" },
-    { id: "team", label: "Team" },
+    //{ id: "team", label: "Team" },
     { id: "contact", label: "Contact", isButton: true },
   ]
 
