@@ -15,16 +15,7 @@ const founders = [
   },
 ]
 
-const teamMembers = [
-  { name: "Michal Ogierman", title: "CTO" },
-  { name: "Praveen Bhandari", title: "AI Engineer" },
-  { name: "Krzysztof Sulima", title: "AI Scientist" },
-  { name: "Jakub Bednarek", title: "Senior Machine Learning" },
-  { name: "Kamil Kleban", title: "Fullstack Developer" },
-  { name: "Pawel Molicki", title: "Cloud Engineer" },
-  { name: "Zbigniew Plawecki", title: "Senior QA" },
-  { name: "Alfred Driessen", title: "Theoretical Physics Advisor" },
-]
+
 
 export default function TeamSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -113,23 +104,7 @@ export default function TeamSection() {
 
         {/* Core team */}
         <div>
-          <h3 className="text-2xl md:text-3xl text-center mb-8 text-slate-900 font-light text-whisper">Core Team</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, index) => (
-              <div
-                key={member.name}
-                className={`transition-all duration-700 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-                style={{ transitionDelay: `${(index + 2) * 100}ms` }}
-              >
-                <div className="border border-red-500 rounded-lg p-6 text-center hover:border-red-600 transition-colors duration-300 h-full bg-white/70 backdrop-blur-sm">
-                  <h4 className="font-thin mb-1 text-slate-900 text-whisper">{member.name}</h4>
-                  <p className="text-slate-600 text-sm font-light text-airy">{member.title}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          
         </div>
 
         {/* AI agents tagline */}
