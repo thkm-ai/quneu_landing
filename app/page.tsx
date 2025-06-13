@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Navigation from "@/components/navigation"
 import HeroSection from "@/components/hero-section"
 import VisionSection from "@/components/vision-section"
 import DifferentiatorSection from "@/components/differentiator-section"
@@ -31,7 +30,6 @@ export default function Home() {
     <main className="relative">
       {/* Main Content */}
       <div className="relative z-20">
-        <Navigation />
         <HeroSection />
         <VisionSection />
         <DifferentiatorSection />

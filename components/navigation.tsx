@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import { usePathname } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -8,7 +9,11 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [activeSection, setActiveSection] = useState("hero")
+  const pathname = usePathname()
   const waveRef = useRef<HTMLDivElement>(null)
+
+  // Check if we're on the home page
+  const isHomePage = pathname === "/"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,15 +25,18 @@ export default function Navigation() {
       const progress = (window.scrollY / totalHeight) * 100
       setScrollProgress(progress)
 
-      // Determine active section based on scroll position
-      const sections = ["hero", "vision", "solution", "how-it-works", "applications", "enterprise", "team"]
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section)
-            break
+      // Only track sections on home page
+      if (isHomePage) {
+        // Determine active section based on scroll position
+        const sections = ["hero", "vision", "solution", "how-it-works", "applications", "enterprise", "team"]
+        for (const section of sections) {
+          const element = document.getElementById(section)
+          if (element) {
+            const rect = element.getBoundingClientRect()
+            if (rect.top <= 100 && rect.bottom >= 100) {
+              setActiveSection(section)
+              break
+            }
           }
         }
       }
@@ -36,7 +44,7 @@ export default function Navigation() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [isHomePage])
 
   // Navigation items
   const navItems = [
@@ -47,6 +55,29 @@ export default function Navigation() {
     { id: "team", label: "Team" },
     { id: "contact", label: "Contact", isButton: true },
   ]
+
+  const handleNavClick = (item: any) => {
+    if (!isHomePage) {
+      // If not on home page, navigate to home page with hash
+      window.location.href = `/#${item.id}`
+      return
+    }
+
+    // If on home page, scroll to section
+    if (item.id === "contact") {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })
+    } else if (item.id === "enterprise") {
+      const element = document.getElementById("applications")
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
+    } else {
+      const element = document.getElementById(item.id)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
+    }
+  }
 
   return (
     <nav className="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
@@ -69,46 +100,33 @@ export default function Navigation() {
                 {/* Navigation Links */}
                 <div className="hidden md:flex items-center space-x-1">
                   {navItems.map((item) => (
-                    <a
+                    <button
                       key={item.id}
-                      href={item.id === "contact" ? "#" : `#${item.id}`}
-                      onClick={(e) => {
-                        e.preventDefault()
-                        if (item.id === "contact") {
-                          // Scroll to contact section at the bottom
-                          window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })
-                        } else if (item.id === "enterprise") {
-                          // Scroll to applications section which contains the Enterprise FOCUS content
-                          const element = document.getElementById("applications")
-                          if (element) {
-                            element.scrollIntoView({ behavior: "smooth", block: "start" })
-                          }
-                        } else {
-                          const element = document.getElementById(item.id)
-                          if (element) {
-                            element.scrollIntoView({ behavior: "smooth", block: "start" })
-                          }
-                        }
-                      }}
+                      onClick={() => handleNavClick(item)}
                       className={`
                         relative px-4 py-2 rounded-full text-sm font-light tracking-wider transition-all duration-300
-                        ${activeSection === item.id ? "text-slate-900" : "text-slate-600 hover:text-slate-800"}
+                        ${isHomePage && activeSection === item.id ? "text-slate-900" : "text-slate-600 hover:text-slate-800"}
                         ${item.isButton ? "bg-slate-800 text-white hover:bg-slate-700 ml-2 border border-red-500" : ""}
                       `}
                     >
                       {item.label}
-                      {activeSection === item.id && !item.isButton && (
+                      {isHomePage && activeSection === item.id && !item.isButton && (
                         <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-slate-800 rounded-full" />
                       )}
-                    </a>
+                    </button>
                   ))}
 
                   {/* Privacy Policy Link */}
                   <Link
                     href="/privacy"
-                    className="relative px-4 py-2 rounded-full text-sm font-light tracking-wider transition-all duration-300 text-slate-600 hover:text-slate-800 ml-2"
+                    className={`relative px-4 py-2 rounded-full text-sm font-light tracking-wider transition-all duration-300 ml-2 ${
+                      pathname === "/privacy" ? "text-slate-900 bg-slate-100" : "text-slate-600 hover:text-slate-800"
+                    }`}
                   >
                     Privacy
+                    {pathname === "/privacy" && (
+                      <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-slate-800 rounded-full" />
+                    )}
                   </Link>
                 </div>
 
