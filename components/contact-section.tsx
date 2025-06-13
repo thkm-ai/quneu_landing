@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Link from "next/link"
 
 export default function ContactSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -114,7 +115,7 @@ export default function ContactSection() {
       {/* Footer */}
       <footer className="mt-24 pt-12 border-t border-red-500 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-8">
             <div className="mb-6 md:mb-0">
               <img src="/images/logo-black.png" alt="QUNEU" className="h-8 w-auto" />
             </div>
@@ -138,6 +139,35 @@ export default function ContactSection() {
             </div>
 
             <div className="text-slate-600 text-sm font-light tracking-wider">© 2025 QUNEU. All rights reserved.</div>
+          </div>
+
+          {/* Legal Links */}
+          <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-slate-200">
+            <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-4 md:mb-0">
+              <Link 
+                href="/privacy" 
+                className="text-sm text-slate-600 hover:text-slate-800 font-light transition-colors duration-300"
+              >
+                Privacy Policy
+              </Link>
+              <span className="text-slate-400">•</span>
+              <Link 
+                href="/terms" 
+                className="text-sm text-slate-600 hover:text-slate-800 font-light transition-colors duration-300"
+              >
+                Terms of Service
+              </Link>
+              <span className="text-slate-400">•</span>
+              <a 
+                href="mailto:legal@quneu.com" 
+                className="text-sm text-slate-600 hover:text-slate-800 font-light transition-colors duration-300"
+              >
+                Legal Inquiries
+              </a>
+            </div>
+            <div className="text-xs text-slate-500 font-light">
+              Last updated: January 15, 2025
+            </div>
           </div>
         </div>
       </footer>

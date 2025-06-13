@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -58,16 +59,12 @@ export default function Navigation() {
               {/* Navigation Items */}
               <div className="absolute inset-0 flex items-center justify-between px-4 bg-white/90 backdrop-blur-sm border border-red-500 rounded-full">
                 {/* Logo */}
-                <a
-                  href="#hero"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }}
+                <Link
+                  href="/"
                   className="relative z-10 bg-slate-800 text-white rounded-full p-3 border border-red-500 shadow-md hover:shadow-lg hover:bg-slate-700 transition-all duration-300 cursor-pointer"
                 >
                   <Image src="/images/logo-white.png" alt="QUNEU" width={100} height={30} className="h-7 w-auto" />
-                </a>
+                </Link>
 
                 {/* Navigation Links */}
                 <div className="hidden md:flex items-center space-x-1">
@@ -105,6 +102,14 @@ export default function Navigation() {
                       )}
                     </a>
                   ))}
+
+                  {/* Privacy Policy Link */}
+                  <Link
+                    href="/privacy"
+                    className="relative px-4 py-2 rounded-full text-sm font-light tracking-wider transition-all duration-300 text-slate-600 hover:text-slate-800 ml-2"
+                  >
+                    Privacy
+                  </Link>
                 </div>
 
                 {/* Mobile menu button */}
