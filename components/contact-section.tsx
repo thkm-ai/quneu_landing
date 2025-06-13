@@ -150,20 +150,9 @@ export default function ContactSection() {
               >
                 Privacy Policy
               </Link>
-              <span className="text-slate-400">•</span>
-              <Link 
-                href="/terms" 
-                className="text-sm text-slate-600 hover:text-slate-800 font-light transition-colors duration-300"
-              >
-                Terms of Service
-              </Link>
-              <span className="text-slate-400">•</span>
-              <a 
-                href="mailto:legal@quneu.com" 
-                className="text-sm text-slate-600 hover:text-slate-800 font-light transition-colors duration-300"
-              >
-                Legal Inquiries
-              </a>
+              
+              
+              
             </div>
             <div className="text-xs text-slate-500 font-light">
               Last updated: January 15, 2025
