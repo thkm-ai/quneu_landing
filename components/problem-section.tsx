@@ -51,24 +51,24 @@ export default function ProblemSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-thin mb-6 text-slate-900 text-ethereal">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-thin mb-4 sm:mb-6 text-slate-900 text-ethereal">
             The <span className="text-gradient-cosmic">Business Problem</span>
           </h2>
-          <p className="text-xl md:text-2xl text-slate-700 mb-8 font-light text-airy">
+          <p className="text-lg sm:text-xl md:text-2xl text-slate-700 mb-6 sm:mb-8 font-light text-airy">
             Enterprise Material Innovation: A Cross-Industry Challenge
           </p>
-          <div className="w-24 h-px bg-red-500 mx-auto" />
+          <div className="w-20 sm:w-24 h-px bg-red-500 mx-auto" />
         </div>
 
         {/* Universal Issues */}
-        <div className="mb-20">
-          <h3 className="text-2xl md:text-3xl text-center mb-12 text-slate-900 font-light text-whisper">
+        <div className="mb-16 sm:mb-20">
+          <h3 className="text-xl sm:text-2xl md:text-3xl text-center mb-8 sm:mb-12 text-slate-900 font-light text-whisper">
             Universal Issues:
           </h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {problems.map((problem, index) => (
               <div
                 key={problem.title}
@@ -77,10 +77,10 @@ export default function ProblemSection() {
                 }`}
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
-                <div className="border border-red-500 rounded-lg p-8 h-full hover:border-red-600 transition-colors duration-300 bg-white/70 backdrop-blur-sm">
-                  <h4 className="text-lg font-thin text-slate-900 mb-3 text-whisper">{problem.title}</h4>
-                  <p className="text-slate-700 mb-4 leading-relaxed font-light text-airy">{problem.description}</p>
-                  <div className="text-sm font-light text-slate-800 bg-stone-100/80 border border-red-500 rounded-lg px-3 py-1 inline-block tracking-wider">
+                <div className="border border-red-500 rounded-lg p-6 sm:p-8 h-full hover:border-red-600 transition-colors duration-300 bg-white/70 backdrop-blur-sm">
+                  <h4 className="text-base sm:text-lg font-thin text-slate-900 mb-3 text-whisper">{problem.title}</h4>
+                  <p className="text-sm sm:text-base text-slate-700 mb-4 leading-relaxed font-light text-airy">{problem.description}</p>
+                  <div className="text-xs sm:text-sm font-light text-slate-800 bg-stone-100/80 border border-red-500 rounded-lg px-3 py-1 inline-block tracking-wider">
                     {problem.impact}
                   </div>
                 </div>
@@ -91,10 +91,10 @@ export default function ProblemSection() {
 
         {/* Consequences */}
         <div>
-          <h3 className="text-2xl md:text-3xl text-center mb-12 text-slate-900 font-light text-whisper">
+          <h3 className="text-xl sm:text-2xl md:text-3xl text-center mb-8 sm:mb-12 text-slate-900 font-light text-whisper">
             Consequences:
           </h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {consequences.map((consequence, index) => (
               <div
                 key={consequence.title}
@@ -103,18 +103,18 @@ export default function ProblemSection() {
                 }`}
                 style={{ transitionDelay: `${(index + 3) * 200}ms` }}
               >
-                <div className="border border-red-500 rounded-lg p-8 text-center h-full hover:border-red-600 transition-colors duration-300 bg-white/70 backdrop-blur-sm">
-                  <h4 className="text-lg font-thin text-slate-900 mb-3 text-whisper">{consequence.title}</h4>
-                  <p className="text-slate-700 font-light text-airy">{consequence.impact}</p>
+                <div className="border border-red-500 rounded-lg p-6 sm:p-8 text-center h-full hover:border-red-600 transition-colors duration-300 bg-white/70 backdrop-blur-sm">
+                  <h4 className="text-base sm:text-lg font-thin text-slate-900 mb-3 text-whisper">{consequence.title}</h4>
+                  <p className="text-sm sm:text-base text-slate-700 font-light text-airy">{consequence.impact}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="text-center mt-16">
-          <div className="inline-block bg-red-500 h-px w-32 mb-4" />
-          <p className="text-xl text-slate-700 font-light text-airy">What if there was a better way?</p>
+        <div className="text-center mt-12 sm:mt-16">
+          <div className="inline-block bg-red-500 h-px w-24 sm:w-32 mb-4" />
+          <p className="text-lg sm:text-xl text-slate-700 font-light text-airy">What if there was a better way?</p>
         </div>
       </div>
     </section>

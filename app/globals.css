@@ -5,12 +5,17 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
   }
 
   body {
     font-family: var(--font-raleway), var(--font-inter), system-ui, -apple-system, sans-serif;
     font-weight: 300;
     letter-spacing: 0.02em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   h1,
@@ -46,6 +51,30 @@
     font-weight: 300;
     letter-spacing: 0.02em;
     line-height: 1.8;
+  }
+
+  /* Mobile-specific improvements */
+  @media (max-width: 768px) {
+    body {
+      font-size: 16px; /* Prevent zoom on iOS */
+    }
+    
+    /* Improve touch targets */
+    button, 
+    [role="button"],
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Improve form elements */
+    input, 
+    textarea, 
+    select {
+      font-size: 16px; /* Prevent zoom on iOS */
+    }
   }
 }
 
@@ -113,6 +142,22 @@
     text-transform: uppercase;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
+
+  /* Mobile-specific utilities */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .mobile-safe-text {
+    font-size: 16px;
+  }
+
+  /* Improved mobile scrolling */
+  .mobile-scroll-smooth {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
 }
 
 /* Custom scrollbar */
@@ -137,4 +182,23 @@
 ::selection {
   background: rgba(30, 41, 59, 0.2);
   color: #1f2937;
+}
+
+/* Mobile-specific media queries */
+@media (max-width: 640px) {
+  /* Reduce animations on mobile for better performance */
+  * {
+    animation-duration: 0.5s !important;
+    transition-duration: 0.3s !important;
+  }
+  
+  /* Improve mobile navigation */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+  }
 }

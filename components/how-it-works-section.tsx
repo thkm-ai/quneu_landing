@@ -69,7 +69,7 @@ export default function HowItWorksSection() {
   }, [])
 
   return (
-    <section id="how-it-works" ref={sectionRef} className="py-24 px-6 relative overflow-hidden">
+    <section id="how-it-works" ref={sectionRef} className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden">
       {/* Animated binary background */}
       <div className="absolute inset-0 opacity-5 overflow-hidden">
         <div className="absolute inset-0 grid grid-cols-20 gap-4 p-4">
@@ -92,15 +92,15 @@ export default function HowItWorksSection() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-thin mb-8 text-slate-900 text-ethereal">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-thin mb-6 sm:mb-8 text-slate-900 text-ethereal">
             HOW QUNEU <span className="text-gradient-cosmic">GENERATES NEW MATERIALS</span>
           </h2>
-          <div className="w-24 h-px bg-red-500 mx-auto" />
+          <div className="w-20 sm:w-24 h-px bg-red-500 mx-auto" />
         </div>
 
         {/* Steps flow */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {steps.map((step, index) => (
             <div
               key={step.title}
@@ -111,18 +111,18 @@ export default function HowItWorksSection() {
             >
               <div className="text-center relative">
                 <div
-                  className={`w-20 h-20 rounded-2xl bg-slate-800 border border-red-500 flex items-center justify-center text-3xl mb-4 mx-auto transition-all duration-300 shadow-sm ${activeStep === index ? "shadow-lg shadow-slate-400/25" : ""}`}
+                  className={`w-20 h-20 sm:w-20 sm:h-20 rounded-2xl bg-slate-800 border border-red-500 flex items-center justify-center text-3xl sm:text-3xl mb-3 sm:mb-4 mx-auto transition-all duration-300 shadow-sm ${activeStep === index ? "shadow-lg shadow-slate-400/25" : ""}`}
                 >
-                  <step.icon size={40} className="text-white" />
+                  <step.icon size={48} className="text-white sm:w-10 sm:h-10" />
                 </div>
-                <h3 className="text-lg font-thin mb-2 text-slate-900 text-whisper">{step.title}</h3>
-                <p className="text-slate-700 text-sm leading-relaxed font-light text-airy">{step.description}</p>
+                <h3 className="text-base sm:text-lg font-thin mb-2 text-slate-900 text-whisper">{step.title}</h3>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-light text-airy">{step.description}</p>
 
                 {/* Arrow (except for last item on desktop) */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-10 -right-4 z-10">
+                  <div className="hidden lg:block absolute top-8 sm:top-10 -right-4 z-10">
                     <div className="flex items-center">
-                      <div className="w-8 h-0.5 bg-red-600 opacity-70" />
+                      <div className="w-6 sm:w-8 h-0.5 bg-red-600 opacity-70" />
                       <div className="w-0 h-0 border-l-4 border-l-red-600 border-y-2 border-y-transparent opacity-70" />
                     </div>
                   </div>
@@ -134,7 +134,7 @@ export default function HowItWorksSection() {
 
         {/* Bottom tagline */}
         <div className="text-center">
-          <p className="text-2xl md:text-3xl font-thin text-slate-800 text-ethereal">
+          <p className="text-lg sm:text-2xl md:text-3xl font-thin text-slate-800 text-ethereal">
             What used to take years of lab work now happens in minutes!
           </p>
         </div>

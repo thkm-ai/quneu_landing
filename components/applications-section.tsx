@@ -65,23 +65,23 @@ export default function ApplicationsSection() {
   }, [])
 
   return (
-    <section id="applications" ref={sectionRef} className="py-24 px-6 relative overflow-hidden">
+    <section id="applications" ref={sectionRef} className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-thin mb-6 text-slate-900 text-ethereal">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-thin mb-4 sm:mb-6 text-slate-900 text-ethereal">
             Quneu Enterprise <span className="text-gradient-cosmic">FOCUS</span>
           </h2>
-          <h3 className="text-2xl md:text-3xl text-slate-700 mb-8 font-light text-whisper">
+          <h3 className="text-xl sm:text-2xl md:text-3xl text-slate-700 mb-6 sm:mb-8 font-light text-whisper">
             HOW TO USE CONSCIOUS INTELLIGENCE
           </h3>
-          <div className="w-24 h-px bg-red-500 mx-auto mb-8" />
-          <p className="text-lg text-slate-600 max-w-4xl mx-auto font-light text-airy">
+          <div className="w-20 sm:w-24 h-px bg-red-500 mx-auto mb-6 sm:mb-8" />
+          <p className="text-base sm:text-lg text-slate-600 max-w-4xl mx-auto font-light text-airy px-4 sm:px-0">
             Explore and implement Quneu's Quantum Conscious Simulation AI to exponentially launch your enterprise into
             the next era of innovation, manufacturing, and advanced research.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {applications.map((app, index) => (
             <div
               key={app.title}
@@ -90,14 +90,14 @@ export default function ApplicationsSection() {
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="border border-red-500 rounded-lg p-8 h-full hover:border-red-600 transition-all duration-300 group text-center bg-white/70 backdrop-blur-sm">
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
-                  <app.icon size={64} />
+              <div className="border border-red-500 rounded-lg p-6 sm:p-8 h-full hover:border-red-600 transition-all duration-300 group text-center bg-white/70 backdrop-blur-sm">
+                <div className="text-4xl sm:text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                  <app.icon size={64} className="sm:w-16 sm:h-16" />
                 </div>
 
-                <h3 className="text-xl font-thin mb-3 text-slate-900 text-whisper">{app.title}</h3>
+                <h3 className="text-lg sm:text-xl font-thin mb-3 text-slate-900 text-whisper">{app.title}</h3>
 
-                <p className="text-slate-700 font-light text-airy">{app.description}</p>
+                <p className="text-sm sm:text-base text-slate-700 font-light text-airy">{app.description}</p>
               </div>
             </div>
           ))}

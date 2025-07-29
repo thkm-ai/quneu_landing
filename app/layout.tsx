@@ -21,7 +21,13 @@ const raleway = Raleway({
 export const metadata: Metadata = {
   title: "QUNEU - Quantum Intelligence",
   description: "Bringing quantum intelligence to life, making the impossible possible by solving problems that matter.",
-  generator: 'v0.dev'
+  generator: 'v0.dev',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
 }
 
 export default function RootLayout({
@@ -31,6 +37,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+      </head>
       <body className={`${inter.variable} ${raleway.variable} text-slate-900 relative font-sans`}>
         <QuantumFieldBackground />
         <Navigation />

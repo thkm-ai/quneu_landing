@@ -52,13 +52,13 @@ export default function SolutionSection() {
   }, [])
 
   return (
-    <section id="solution" ref={sectionRef} className="py-24 px-6 relative overflow-hidden">
+    <section id="solution" ref={sectionRef} className="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-thin mb-6 text-slate-900 text-ethereal">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-thin mb-4 sm:mb-6 text-slate-900 text-ethereal">
             <span className="text-gradient-cosmic">SOLUTIONS:</span> QUNEU Simulation
           </h2>
-          <h3 className="text-2xl md:text-4xl text-slate-700 mb-8 font-light text-whisper">
+          <h3 className="text-xl sm:text-2xl md:text-4xl text-slate-700 mb-6 sm:mb-8 font-light text-whisper">
             for New Material Discovery
           </h3>
         </div>
@@ -66,9 +66,9 @@ export default function SolutionSection() {
         {/* Central visualization with capabilities */}
         <div className="relative max-w-4xl mx-auto">
           {/* Central quantum sphere */}
-          <div className="flex items-center justify-center mb-16">
+          <div className="flex items-center justify-center mb-12 sm:mb-16">
             <div
-              className={`relative w-64 h-64 transition-all duration-1000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-50"}`}
+              className={`relative w-56 h-56 sm:w-64 sm:h-64 transition-all duration-1000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-50"}`}
             >
               {/* Wireframe sphere */}
               <svg className="w-full h-full" viewBox="0 0 200 200">
@@ -231,14 +231,14 @@ export default function SolutionSection() {
 
               {/* Central core */}
               <div
-                className="absolute top-1/2 left-1/2 w-4 h-4 bg-red-600 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-pulse shadow-sm"
+                className="absolute top-1/2 left-1/2 w-4 h-4 sm:w-4 sm:h-4 bg-red-600 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-pulse shadow-sm"
                 style={{ animationDuration: "1.5s" }}
               />
             </div>
           </div>
 
           {/* Capabilities grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {capabilities.map((capability, index) => (
               <div
                 key={capability.title}
@@ -249,9 +249,9 @@ export default function SolutionSection() {
                 onMouseEnter={() => setActiveCapability(index)}
                 onMouseLeave={() => setActiveCapability(null)}
               >
-                <div className="border border-red-500 rounded-lg p-8 h-full hover:border-red-600 transition-all duration-300 bg-white/70 backdrop-blur-sm">
-                  <h4 className="text-lg font-thin text-slate-800 mb-3 text-whisper font-medium">{capability.title}</h4>
-                  <p className="text-slate-700 text-sm leading-relaxed font-light text-airy">
+                <div className="border border-red-500 rounded-lg p-6 sm:p-8 h-full hover:border-red-600 transition-all duration-300 bg-white/70 backdrop-blur-sm">
+                  <h4 className="text-base sm:text-lg font-thin text-slate-800 mb-3 text-whisper font-medium">{capability.title}</h4>
+                  <p className="text-sm text-slate-700 leading-relaxed font-light text-airy">
                     {capability.description}
                   </p>
                 </div>
